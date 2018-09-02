@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo date: `date`
+echo "Hello World!"
+echo "From cibuild.sh"
+echo date: `date`
