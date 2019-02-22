@@ -1,0 +1,23 @@
+workflow "Say Hello World" {
+  on = "push"
+  resolves = [
+    "Hello World",
+    "Done",
+  ]
+}
+
+action "Hello World" {
+  uses = "actions/bin/sh@master"
+  args = ["echo 'Hello World'"]
+}
+
+action "Sleep" {
+  uses = "actions/bin/sh@master"
+  args = ["sleep 60"]
+}
+
+action "Done" {
+  uses = "actions/bin/sh@master"
+  needs = ["Sleep"]
+  args = ["echo 'Done!'"]
+}
